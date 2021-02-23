@@ -17,7 +17,7 @@ Future<String> GetWeatherApi( String token,BuildContext context)async{
     headers:{
       "Authorization":"Bearer $token"
     }
-  )).catchError(    onCustomAnimationAlertPressed(context,response.data["status"], response.data["message"]));
+  ));
 
   if(response.statusCode ==200){
     var provider = Provider.of<MainProvider>(context,listen: false);

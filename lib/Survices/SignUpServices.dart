@@ -18,9 +18,7 @@ Future<String> RegisterApi(
   Response response;
   var body = json.encode(registerModel.toJson());
   print(body);
-  response = await dio.post("http://multi-choice.org/api/Authenticate/register", data: body).catchError(
-      onCustomAnimationAlertPressed(context,response.data["status"], response.data["message"])
-  );
+  response = await dio.post("http://multi-choice.org/api/Authenticate/register", data: body);
   print(response.statusCode);
   if (response.statusCode == 200) {
     if(response.data["status"]=="Success"){

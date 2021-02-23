@@ -17,10 +17,7 @@ Future<String> LoginApi(LoginModel loginModel, BuildContext context)async{
   Dio dio = Dio();
   Response response;
   var body = json.encode(loginModel.toJson());
-  response = await dio.post("http://multi-choice.org/api/Authenticate/login", data: body).catchError(
-      onCustomAnimationAlertPressed(context,response.data["status"], response.data["message"])
-
-  );
+  response = await dio.post("http://multi-choice.org/api/Authenticate/login", data: body);
   if (response.statusCode == 200) {
     if(response.data["status"]=="Success"){
       print('UserLogedin');
